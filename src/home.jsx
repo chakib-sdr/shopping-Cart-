@@ -1,16 +1,16 @@
 import {useState,useEffect} from "react";
-
+import { Link } from "react-router-dom";
 export function Header() {
     return (
         <div className = "headercontainer">
 
         <img src="/shop-svgrepo-com.svg" alt="Shop"/>
-
-        <div>
-            <button>Home</button>
-            <button>Shop</button>
-            <button>Cart</button>
-        </div>
+        
+            <div>
+                <Link to="/">Home</Link>
+                <Link to="/shop">Shop</Link>
+                <Link to="/cart">Cart</Link>
+            </div>
 
         </div>
 
@@ -90,3 +90,12 @@ export function Recommendation() {
     );
 }
 
+export function Home() {
+    return (
+        <>
+            <Header />
+            <Title />
+            <Recommendation />
+        </>
+    );
+}
