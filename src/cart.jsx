@@ -1,6 +1,7 @@
+import {useState} from "react";
 import { Link } from "react-router-dom";
 
-export function Header() {
+function Header() {
     return (
         <div className = "headercontainer">
 
@@ -15,11 +16,34 @@ export function Header() {
         </div>
     )
     }
-export function Cart() {
+
+function Show({ purchaseds }) {
+    return purchaseds.map((purchased) => (
+        <div className="itemcontainer" key={purchased.id}>
+
+            <p>{purchased.title}</p>
+
+            <img
+                className="itemimage"
+                src={purchased.image}
+                alt={purchased.title}
+            />
+
+            <p>{purchased.price} $</p>
+
+            <p>{purchased.description}</p>
+
+            <button>Remove</button>
+
+        </div>
+    ));
+}
+
+export function Cart({purchaseds}) {
     return(
         <div>
         <Header></Header>
-        <h1>Cart</h1>;
+        <Show purchaseds={purchaseds} ></Show>
         </div>
 
     ) 

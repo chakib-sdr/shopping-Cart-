@@ -1,7 +1,7 @@
 import {useEffect , useState} from "react";
 import { Link } from "react-router-dom";
 
-export function Header() {
+function Header() {
     return (
         <div className = "headercontainer">
 
@@ -16,7 +16,10 @@ export function Header() {
         </div>
     )
     }
-export function Shop() {
+
+
+
+function Content({ setPurchaseds }) {
 
     const [items , setitems] = useState([]);
 
@@ -39,21 +42,28 @@ export function Shop() {
     getallproduct();
 }, []);
     if(items.length === 0){
-        return <div>Loading...</div>;
+        return <div></div>;
     }
     return(
-    <div>
-        <Header></Header>
-      {items.map((item) => (
+      items.map((item) => (
  
         <div className = "itemcontainer">
           <p>{item.title}</p>
           <img className = "itemimage" src={item.image} alt={item.title}/>
           <p>{item.price} $</p>
           <p>{item.description}</p>
-          <button>Purchase</button>
+          <button onClick={() => setPurchaseds(prev => [...prev, item])} >Purchase</button>
         </div>
-      ))}
-    </div>
+      ))
     )
 };
+
+export function Shop({setPurchaseds}) {
+    return(
+        <div>
+        <Header></Header>
+        <Content setPurchaseds={setPurchaseds} ></Content>
+        </div>
+
+    )
+}

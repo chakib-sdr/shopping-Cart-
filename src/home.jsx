@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-export function Header() {
+function Header() {
     return (
         <div className = "headercontainer">
 
@@ -17,7 +17,7 @@ export function Header() {
     )
 }
 
-export function Title() {
+function Title() {
     return(
         <div className = "title">
             <h1>Welcome To The Shop</h1>
@@ -45,7 +45,8 @@ async function getproduct(id) {
 
 }
 
-export function Recommendation() {
+
+function Recommendation() {
     const [id1, setid1] = useState(1);
     const [id2, setid2] = useState(2);
     const [id3, setid3] = useState(3);
@@ -66,7 +67,7 @@ export function Recommendation() {
     }, []);
 
     if (products.length === 0) {
-        return <div>Loading...</div>;
+        return <div></div>;
     }
 
     return (
