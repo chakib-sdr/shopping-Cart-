@@ -51,6 +51,7 @@ export function Shop() {
           <img className = "itemimage" src={item.image} alt={item.title}/>
           <p>{item.price} $</p>
           <p>{item.description}</p>
+          <button>Purchase</button>
         </div>
       ))}
     </div>

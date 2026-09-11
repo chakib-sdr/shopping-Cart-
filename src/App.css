@@ -31,7 +31,7 @@ body {
   margin-top: 30px;
   text-decoration: none;
 }
-.headercontainer > div > a:hover{
+button:hover{
   opacity: 0.5;
 }
 
@@ -90,4 +90,14 @@ body {
 
 .itemimage{
   width: 100px;
+}
+
+.itemcontainer button{
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #241B14;
+  color: #FAF8F4;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
 }
