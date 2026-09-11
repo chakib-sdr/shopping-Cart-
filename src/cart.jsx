@@ -20,8 +20,8 @@ function Header() {
 
 
 function Show({ purchaseds , setPurchaseds}) {
-    return purchaseds.map((purchased) => (
-        <div className="itemcontainer" key={purchased.id}>
+    return purchaseds.map((purchased,index) => (
+        <div className="itemcontainer" key={index}>
 
             <p>{purchased.title}</p>
 
@@ -35,13 +35,10 @@ function Show({ purchaseds , setPurchaseds}) {
 
             <p>{purchased.description}</p>
 
-            <button onClick={() =>
-                    setPurchaseds(prev =>
-                        prev.filter(
-                            purchasedItem => purchasedItem !== purchased
-                        )
-                    )
-                }
+            <button onClick={ () =>
+                setPurchaseds(prev => prev.filter((_, i) => i !== index))
+            }
+
             >Remove</button>
 
         </div>
