@@ -47,7 +47,7 @@ function Content({ setPurchaseds }) {
     return(
       items.map((item) => (
  
-        <div className = "itemcontainer">
+        <div className = "itemcontainer" key={item.id} >
           <p>{item.title}</p>
           <img className = "itemimage" src={item.image} alt={item.title}/>
           <p>{item.price} $</p>

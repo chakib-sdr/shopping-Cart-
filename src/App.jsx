@@ -22,7 +22,9 @@ export default function App() {
             <Route
                 path="/cart"
                 element={
-                    <Cart purchaseds={purchaseds} />
+                    <Cart purchaseds={purchaseds} 
+                    setPurchaseds={setPurchaseds}
+                    />
                 }
             />
         </Routes>

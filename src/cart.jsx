@@ -17,7 +17,9 @@ function Header() {
     )
     }
 
-function Show({ purchaseds }) {
+
+
+function Show({ purchaseds , setPurchaseds}) {
     return purchaseds.map((purchased) => (
         <div className="itemcontainer" key={purchased.id}>
 
@@ -33,17 +35,24 @@ function Show({ purchaseds }) {
 
             <p>{purchased.description}</p>
 
-            <button>Remove</button>
+            <button onClick={() =>
+                    setPurchaseds(prev =>
+                        prev.filter(
+                            purchasedItem => purchasedItem !== purchased
+                        )
+                    )
+                }
+            >Remove</button>
 
         </div>
     ));
 }
 
-export function Cart({purchaseds}) {
+export function Cart({purchaseds,setPurchaseds}) {
     return(
         <div>
         <Header></Header>
-        <Show purchaseds={purchaseds} ></Show>
+        <Show purchaseds={purchaseds} setPurchaseds={setPurchaseds} ></Show>
         </div>
 
     ) 
